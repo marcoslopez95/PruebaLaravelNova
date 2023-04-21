@@ -2,9 +2,15 @@
 
 namespace App\Providers;
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
+use Laravel\Nova\Menu\MenuItem;
+use Laravel\Nova\Menu\MenuSection;
 use Laravel\Nova\Nova;
 use Laravel\Nova\NovaApplicationServiceProvider;
+use Laravel\Nova\Dashboards\Main;
+use App\Nova\User;
+use Onboarding\User\User as onBoardingUser;
 
 class NovaServiceProvider extends NovaApplicationServiceProvider
 {
@@ -16,6 +22,22 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     public function boot()
     {
         parent::boot();
+
+        // Nova::mainMenu(function (Request $request) {
+        //     return [
+        //         MenuSection::dashboard(Main::class)->icon('chart-bar'),
+
+        //         // MenuSection::make('Customers', [
+        //         //     MenuItem::resource(User::class)->headers([]),
+        //         //     // MenuItem::resource(License::class),
+        //         // ])->icon('user')->collapsable(),
+
+        //         // MenuSection::make('Content', [
+        //         //     // MenuItem::resource(Series::class),
+        //         //     // MenuItem::resource(Release::class),
+        //         // ])->icon('document-text')->collapsable(),
+        //     ];
+        // });
     }
 
     /**
@@ -66,7 +88,9 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
      */
     public function tools()
     {
-        return [];
+        return [
+            new onBoardingUser,
+        ];
     }
 
     /**

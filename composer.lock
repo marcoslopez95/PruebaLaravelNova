@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d913ba307614cd49ad7f8d4bd0878136",
+    "content-hash": "f5d8a5433d0c8b7ba9ad6cc55c93bdaf",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -3262,6 +3262,42 @@
                 }
             ],
             "time": "2023-02-08T01:06:31+00:00"
+        },
+        {
+            "name": "onboarding/user",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "./nova-components/User",
+                "reference": "b3542df7d8a0a6a16515cca49a094e65d2b6a413"
+            },
+            "require": {
+                "php": "^7.3|^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Onboarding\\User\\ToolServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Onboarding\\User\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "A Laravel Nova tool.",
+            "keywords": [
+                "laravel",
+                "nova"
+            ],
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "openspout/openspout",
@@ -10226,7 +10262,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "onboarding/user": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
