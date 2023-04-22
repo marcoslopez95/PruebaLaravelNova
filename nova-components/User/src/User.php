@@ -3,6 +3,7 @@
 namespace Onboarding\User;
 
 use Illuminate\Http\Request;
+use Laravel\Nova\Menu\MenuGroup;
 use Laravel\Nova\Menu\MenuSection;
 use Laravel\Nova\Nova;
 use Laravel\Nova\Tool;
@@ -28,8 +29,16 @@ class User extends Tool
      */
     public function menu(Request $request)
     {
-        return MenuSection::make('User')
+        // return MenuSection::make('User')
+        //     ->path('/user')
+        //     ->icon('server');
+        return MenuGroup::make('Testing',[
+            MenuSection::make('User')
             ->path('/user')
-            ->icon('server');
+            ->icon('user'),
+            MenuSection::make('Calendar')
+            ->path('/user/calendar')
+            ->icon('calendar')
+        ]);
     }
 }
